@@ -20,7 +20,7 @@ def get_filters():
         if city not in CITY_DATA.keys():
             print("Invalid City.")
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+    # TO DO: get user input number for month from 1 to 12 and 0 for all months
     while type(month) != int  or int(month) > 12 or int(month) < 0:
         print("Enter number of the month to filter by, or 0 to apply no month filter: ")
         
