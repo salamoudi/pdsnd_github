@@ -43,9 +43,6 @@ def get_filters():
         if day not in daysList:
             print("Invalid input")
 
-
-
-    print('-'*40)
     return city, month, day
 
 
@@ -54,7 +51,6 @@ def load_data(city, month, day):
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
  
-
     #Get month and day from Start Time
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
@@ -91,15 +87,13 @@ def time_stats(df):
     commonHour = datetime.time(df['hours'].mode()[0]).strftime("%I %p") 
     print("The most common start hour: {}".format(commonHour))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+
 
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
     print('\nCalculating The Most Popular Stations and Trip...')
-    start_time = time.time()
 
     # TO DO: display most commonly used start station
     commonStartStation = df['Start Station'].mode()[0]
@@ -115,15 +109,12 @@ def station_stats(df):
     combo = df['combo'].mode()[0]
     print("The most frequent trips from {}".format(combo))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
 
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
     print('\nCalculating Trip Duration...')
-    start_time = time.time()
 
     # TO DO: display total travel time
     total_duration = datetime.timedelta(seconds = int(df['Trip Duration'].sum()))
@@ -133,15 +124,12 @@ def trip_duration_stats(df):
     average_duration =  datetime.timedelta(seconds =  round(df['Trip Duration'].mean()))
     print("The average trip durationis {}".format(average_duration))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
 
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
     print('\nCalculating User Stats...\n')
-    start_time = time.time()
 
     # TO DO: Display counts of user types
     userTypes = df['User Type'].value_counts()
@@ -165,9 +153,6 @@ def user_stats(df):
     except:
         print("There are no birth year details in this file.")
 
-
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
 
 def display_data(df):
     
