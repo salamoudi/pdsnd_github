@@ -21,5 +21,7 @@ Resources:
 * Udacity - Udacity's Programming for Data Science Nanodegree Program.
 * https://stackoverflow.com
 
+Shatha Alamoudi
+
 
 
